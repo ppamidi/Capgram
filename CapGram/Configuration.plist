@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Base URL</key>
+	<string>http://199.181.133.173/</string>
+	<key>Transporation WSDL Path</key>
+	<string>MIMTransportationService/TransportationService.svc?singleWsdl</string>
+	<key>GetAllLocations SOAPAction URL</key>
+	<string>http://tempuri.org/ITransportationService/GetLocations</string>
+	<key>GetArrivals SOAPAction URL</key>
+	<string>http://tempuri.org/ITransportationService/GetArrivals</string>
+	<key>Request Timeout Interval</key>
+	<integer>10</integer>
+</dict>
+</plist>
