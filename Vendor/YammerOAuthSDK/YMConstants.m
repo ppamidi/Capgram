@@ -22,15 +22,17 @@ NSString * const YMYammerSDKErrorDomain = @"com.yammer.YammerSDK.ErrorDomain";
 
 const NSInteger YMYammerSDKLoginAuthenticationError = 1001;
 const NSInteger YMYammerSDKLoginObtainAuthTokenError = 1002;
+const NSInteger YMYammerSDKLoginInvalidNetworkError = 1003;
+const NSInteger kCapgeminiYammerNetworkID = 2102;
 
 NSString * const YMYammerSDKLoginDidCompleteNotification = @"YMYammerSDKLoginDidCompleteNotification";
 NSString * const YMYammerSDKLoginDidFailNotification = @"YMYammerSDKLoginDidFailNotification";
+
 
 NSString * const YMYammerSDKAuthTokenUserInfoKey = @"YMYammerSDKAuthTokenUserInfoKey";
 NSString * const YMYammerSDKErrorUserInfoKey  = @"YMYammerSDKErrorUserInfoKey";
 
 NSString * const YMYammerSDKResponseUserProfileKey  = @"YMYammerSDKResponseUserProfileKey";
-
 
 
 NSString * const YMYammerSDKLogoutDidCompleteNotification = @"YMYammerSDKLogoutDidCompleteNotification";

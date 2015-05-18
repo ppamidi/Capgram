@@ -24,3 +24,9 @@ DerivedData
 # http://guides.cocoapods.org/using/using-cocoapods.html#should-i-ignore-the-pods-directory-in-source-control
 #
 # Pods/
+
+scripts/certs/dist.cer
+
+scripts/certs/dist.p12
+
+scripts/profile/adhoc_distribution.mobileprovision

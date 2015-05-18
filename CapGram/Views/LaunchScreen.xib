@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6250" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="13F1066" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -70,11 +70,11 @@
                     <exclude reference="zdU-kx-HE6"/>
                 </mask>
                 <mask key="constraints">
-                    <exclude reference="Mkh-ge-uTy"/>
-                    <exclude reference="OM4-CD-WBz"/>
                     <exclude reference="P6W-T0-1RY"/>
                     <exclude reference="XyD-4S-Kvo"/>
                     <exclude reference="un1-ie-nKw"/>
+                    <exclude reference="Mkh-ge-uTy"/>
+                    <exclude reference="OM4-CD-WBz"/>
                 </mask>
             </variation>
             <variation key="heightClass=regular-widthClass=compact">
@@ -82,14 +82,14 @@
                     <include reference="zdU-kx-HE6"/>
                 </mask>
                 <mask key="constraints">
-                    <include reference="Mkh-ge-uTy"/>
-                    <include reference="OM4-CD-WBz"/>
                     <exclude reference="Kzo-t9-V3l"/>
                     <exclude reference="MfP-vx-nX0"/>
                     <include reference="P6W-T0-1RY"/>
                     <include reference="XyD-4S-Kvo"/>
                     <exclude reference="ZEH-qu-HZ9"/>
                     <include reference="un1-ie-nKw"/>
+                    <include reference="Mkh-ge-uTy"/>
+                    <include reference="OM4-CD-WBz"/>
                 </mask>
             </variation>
             <point key="canvasLocation" x="404" y="445"/>

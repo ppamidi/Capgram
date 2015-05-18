@@ -16,6 +16,10 @@ extern NSString * const YMYammerSDKErrorDomain;
 
 extern const NSInteger YMYammerSDKLoginAuthenticationError;
 extern const NSInteger YMYammerSDKLoginObtainAuthTokenError;
+extern const NSInteger YMYammerSDKLoginInvalidNetworkError;
+
+
+extern const NSInteger kCapgeminiYammerNetworkID;
 
 extern NSString * const YMYammerSDKLoginDidCompleteNotification;
 extern NSString * const YMYammerSDKLoginDidFailNotification;

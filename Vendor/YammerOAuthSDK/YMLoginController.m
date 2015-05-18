@@ -149,18 +149,29 @@ NSString * const YAMMER_KEYCHAIN_STATE_KEY = @"yammerState";
                  
                  NSDictionary *jsonDict = (NSDictionary *) responseObject;
                  NSDictionary *access_token = jsonDict[@"access_token"];
+                 NSDictionary *network_dict = jsonDict[@"network"];
+                 
                  NSString *authToken = access_token[@"token"];
                  
-                 // For debugging purposes only
-                 NSLog(@"Yammer Login JSON: %@", responseObject);
-                 NSLog(@"authToken: %@", authToken);
-                 
-                 // Save the authToken in the KeyChain
-                 [weakSelf storeAuthTokenInKeychain:authToken];
-                 
-                 [weakSelf.delegate loginController:weakSelf didCompleteWithAuthToken:authToken forUser:responseObject];
-                 
-                 [[NSNotificationCenter defaultCenter] postNotificationName:YMYammerSDKLoginDidCompleteNotification object:weakSelf userInfo:@{YMYammerSDKAuthTokenUserInfoKey: authToken, YMYammerSDKResponseUserProfileKey: responseObject}];
+                 if ([network_dict[@"id"] integerValue] == kCapgeminiYammerNetworkID) {
+                     // For debugging purposes only
+                     NSLog(@"Yammer Login JSON: %@", responseObject);
+                     NSLog(@"authToken: %@", authToken);
+                     
+                     // Save the authToken in the KeyChain
+                     [weakSelf storeAuthTokenInKeychain:authToken];
+                     
+                     [weakSelf.delegate loginController:weakSelf didCompleteWithAuthToken:authToken forUser:responseObject];
+                     
+                     [[NSNotificationCenter defaultCenter] postNotificationName:YMYammerSDKLoginDidCompleteNotification object:weakSelf userInfo:@{YMYammerSDKAuthTokenUserInfoKey: authToken, YMYammerSDKResponseUserProfileKey: responseObject}];
+                     
+                 } else {
+                     NSMutableDictionary *userInfo = [@{NSLocalizedDescriptionKey: @"Invalid Yammer Network: User should login with Capgemini Yammer network"} mutableCopy];
+                     NSError *newError = [NSError errorWithDomain:YMYammerSDKErrorDomain code:YMYammerSDKLoginInvalidNetworkError userInfo:userInfo];
+                     
+                     [weakSelf.delegate loginController:weakSelf didFailWithError:newError];
+                     [[NSNotificationCenter defaultCenter] postNotificationName:YMYammerSDKLoginDidFailNotification object:weakSelf userInfo:@{YMYammerSDKErrorUserInfoKey: newError }];
+                 }
              }
              failure:^(NSInteger statusCode, NSError *error) {
                  NSMutableDictionary *userInfo = [@{NSLocalizedDescriptionKey: @"Unable to retrieve authentication token from code"} mutableCopy];
@@ -172,7 +183,7 @@ NSString * const YAMMER_KEYCHAIN_STATE_KEY = @"yammerState";
                  NSError *newError = [NSError errorWithDomain:YMYammerSDKErrorDomain code:YMYammerSDKLoginObtainAuthTokenError userInfo:userInfo];
                  
                  [weakSelf.delegate loginController:weakSelf didFailWithError:newError];
-                 [[NSNotificationCenter defaultCenter] postNotificationName:YMYammerSDKLoginDidFailNotification object:weakSelf userInfo:@{YMYammerSDKErrorUserInfoKey: newError, }];
+                 [[NSNotificationCenter defaultCenter] postNotificationName:YMYammerSDKLoginDidFailNotification object:weakSelf userInfo:@{YMYammerSDKErrorUserInfoKey: newError }];
              }
      ];
 }

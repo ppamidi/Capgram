@@ -45,6 +45,8 @@
     if ([[YMLoginController sharedInstance] storedAuthToken]) {
         
         [self showViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"HomeViewController"] sender:self];
+    } else {
+        
     }
 }
 
@@ -113,6 +115,10 @@
 
 - (void)handleFailureWithError:(NSError *)error
 {
+    if (error.code == YMYammerSDKLoginInvalidNetworkError) {
+        [[[UIAlertView alloc] initWithTitle:@"Invalid Network" message:@"You have not logged into Capgemini Yammer network" delegate:self cancelButtonTitle:@"" otherButtonTitles: nil] show];
+    }
+    
     [self updateContentView];
 }
 @end

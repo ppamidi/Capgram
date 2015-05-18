@@ -1,1 +1,17 @@
 language: objective-c
+
+before_script:
+- openssl aes-256-cbc -k "$ENCRYPTION_SECRET" -in scripts/profile/adhoc_distribution.mobileprovision.enc -d -a -out scripts/profile/adhoc_distribution.mobileprovision
+- openssl aes-256-cbc -k "$ENCRYPTION_SECRET" -in scripts/certs/dist.cer.enc -d -a -out scripts/certs/dist.cer
+- openssl aes-256-cbc -k "$ENCRYPTION_SECRET" -in scripts/certs/dist.p12.enc -d -a -out scripts/certs/dist.p12
+after_script:
+
+after_success:
+
+env:
+  global:
+  - secure: N4cFkYAMdSrgmP58MJ8yO8ADc0176JCaff4ImIvTp2d9gM4rvmK27oA1eSSRPIx62ujXgQeL98W/cw14qoAXVcJOjDoHhZ+7tVyJ/Klw2kM5XGNbKQn1o9zTJQsoTzia2CtrGaQIe4XJ7Akh1Qw7W3W6aqIBxlWgRlpwmzoyoEc=
+  - secure: fDWvTa5feAKXzP+A4Ba0WAIw47qPPnz6QGF2wpf21YqmSeIqGxw2RG/88Ao0AWwQ5mz3tjEVVWFY0oDeLnr0uIPZ07FMydrIfzHByPAMaEV1d8AmSTx4QzTaWLvF56G90Zs9yN+Gncwfqkz/RF7+OcnYb//XQTL6Ki8/g7Uth7U=
+  - APPNAME="CapGram"
+  - 'DEVELOPER_NAME="iPhone Distribution: Vinay Bhutani (9MDBPDK8FK)"'
+  - PROFILE_NAME="General Distribution Provision Profile"
