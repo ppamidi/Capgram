@@ -22,7 +22,7 @@
     
     self.window.tintColor = [UIColor whiteColor];
     
-    [Parse setApplicationId:@"j01pqchdxk89PNeJhB1lTqZziUdCFTigeJaHkHbT" clientKey:@"IOiEPIZQGnVgGtrq6s8fVp55yIYvBlhxDxQ8TeYS"];
+    [Parse setApplicationId:@"Ph4JAYFrJSgaKBmI0IzgUmpn5GuyfLdnzJPFbP2z" clientKey:@"kxIdBXktEfCZfWS0z9Zp8GqCnlfuLjJSMLgc77gv"];
     
     if ([application respondsToSelector:@selector(registerUserNotificationSettings:)]) {
         UIUserNotificationType userNotificationTypes = (UIUserNotificationTypeAlert |
